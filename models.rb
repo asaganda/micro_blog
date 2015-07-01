@@ -1,4 +1,4 @@
-class Users < ActiveRecord::Base
+class User < ActiveRecord::Base
 end
 
 class Post < ActiveRecord::Base
