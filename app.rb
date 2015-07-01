@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './models.rb'
+require 'sinatra/reloader'
 
 set :database, "sqlite3:bookface.sqlite3"
 
