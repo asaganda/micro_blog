@@ -12,3 +12,7 @@ end
 post '/sign_up' do
   "You've Signed Up!"
 end
+
+post '/sign_in' do
+  "Welcome Back!"
+end

@@ -36,7 +36,7 @@ GEM
     sinatra-activerecord (2.0.6)
       activerecord (>= 3.2)
       sinatra (~> 1.0)
-    sinatra-contrib (1.4.5)
+    sinatra-contrib (1.4.4)
       backports (>= 2.0)
       multi_json
       rack-protection
