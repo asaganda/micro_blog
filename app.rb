@@ -34,7 +34,6 @@ get '/home' do
 end
 
 get '/profile' do
-  @current_page = 'profile'
   erb :profile
 end
 
