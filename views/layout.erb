@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title> 
+  <title></title>
 </head>
-<body>
-  <a href="/signout">Sign-Out</a> 
+<body class=<%= @current_page %>>
+  <a href="/signout">Sign-Out</a>
+
 <%= yield %>
+
 </body>
 </html>

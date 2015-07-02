@@ -34,7 +34,8 @@ get '/home' do
 end
 
 get '/profile' do
-    erb :profile
+  @current_page = 'profile'
+  erb :profile
 end
 
 get '/signout' do
