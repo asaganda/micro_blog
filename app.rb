@@ -34,7 +34,7 @@ get '/home' do
 end
 
 get '/profile' do
-  erb :profile
+    erb :profile
 end
 
 get '/signout' do
