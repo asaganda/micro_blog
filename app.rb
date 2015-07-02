@@ -2,10 +2,13 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './models.rb'
 require 'sinatra/reloader'
+require 'rack-flash'
 
 set :database, "sqlite3:bookface.sqlite3"
 
 enable :sessions
+
+use Rack::Flash, sweep: true
 
 configure(:development){set :database, "sqlite3:bookface.sqlite3"}
 
@@ -26,7 +29,19 @@ post '/signup' do
 end
 
 post '/sign_in' do
-  redirect '/home'
+  username = params[:username]
+  password = params[:password]
+
+  @user = User.where(username: username).first
+
+  if @user.password == password
+    session[:user_id] = @user.id
+    flash[:notice] = "Welcome #{@user.username}!"
+    redirect '/home'
+  else
+    flash[:notice] = "Wrong login info, please try again"
+    redirect '/'
+  end
 end
 
 get '/home' do
@@ -43,3 +58,11 @@ get '/signout' do
   flash[:notice] = "Signed Out Successfully. Come back soon!"
   redirect '/'
 end
+
+def current_user
+  if session[:user_id]
+    User.find session[:user_id]
+  end
+end
+
+
