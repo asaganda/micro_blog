@@ -12,6 +12,13 @@ use Rack::Flash, sweep: true
 
 configure(:development){set :database, "sqlite3:bookface.sqlite3"}
 
+def current_user
+  if session[:user_id]
+    User.find session[:user_id]
+  end
+end
+
+
 get '/' do
   erb :sign_up
 end
@@ -59,10 +66,6 @@ get '/signout' do
   redirect '/'
 end
 
-def current_user
-  if session[:user_id]
-    User.find session[:user_id]
-  end
-end
+
 
 
