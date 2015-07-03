@@ -52,7 +52,7 @@ post '/sign_in' do
 end
 
 get '/home' do
-  "Welcome back your feed!"
+  erb :home
 end
 
 get '/profile' do
