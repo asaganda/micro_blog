@@ -68,6 +68,11 @@ get '/signout' do
   redirect '/'
 end
 
+get '/delete' do
+  User.delete session[:user_id]
+  flash[:notice] = "Your account has been deleted"
+  erb :delete
+end
 
 
 
