@@ -1,2 +1,12 @@
 <%= flash[:notice] %>
 <h1>Hello, Welcome to your Home Feed</h1>
+
+<div>
+  
+<form method="POST" action='/post'>
+  <textarea row="4" column="10" type="text" placeholder="Post" name="post" maxlength="150"></textarea>
+
+  <input type="submit">
+</form>
+
+</div>

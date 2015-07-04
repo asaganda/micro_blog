@@ -24,9 +24,6 @@ get '/' do
   erb :sign_up
 end
 
-# get '/signup' do
-#   erb :sign_up
-# end
 
 post '/signup' do
   User.create :username => params[:username], :email => params[:email], :password => params[:password]
@@ -54,6 +51,11 @@ end
 
 get '/home' do
     erb :home
+end
+
+post '/post' do
+  Post.create :body => params[:post], :user_id => session[:user_id]
+  redirect '/home'
 end
 
 get '/profile' do
