@@ -53,7 +53,7 @@ post '/sign_in' do
 end
 
 get '/home' do
-  erb :home
+    erb :home
 end
 
 get '/profile' do
