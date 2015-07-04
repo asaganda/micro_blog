@@ -12,19 +12,22 @@ use Rack::Flash, sweep: true
 
 configure(:development){set :database, "sqlite3:bookface.sqlite3"}
 
+# this method is defining who the current user is with an if statement
 def current_user
   if session[:user_id]
     User.find session[:user_id]
   end
-
 end
 
-
+# this routes to the sign-up/sign-in page
 get '/' do
   erb :sign_up
 end
 
-
+# After someone signs-up as a user, their info such as username/email/passwod are recorded in a table named users
+# The User.create makes the line above possible. The purple before "=>" are keys and the purple in the [] are the values
+# The params are there because they're taking in what the user is typing in through the form which is on the sign_up.erb
+# this whole concept is named a hash.
 post '/signup' do
   User.create :username => params[:username], :email => params[:email], :password => params[:password]
 
