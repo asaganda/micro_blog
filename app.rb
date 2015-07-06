@@ -29,8 +29,8 @@ end
 # The params are there because they're taking in what the user is typing in through the form which is on the sign_up.erb
 # this whole concept is named a hash.
 post '/signup' do
-  User.create :username => params[:username], :email => params[:email], :password => params[:password]
-
+  @user = User.create :username => params[:username], :email => params[:email], :password => params[:password]
+  session[:user_id] = @user.id
   redirect '/profile'
   #add this as a flash notice later
   # "You've Signed Up!"
