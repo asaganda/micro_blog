@@ -50,6 +50,18 @@ fiant sollemnes in futurum.</p>
 
 <h2>Call Me!</h2>
 
+<div id="past_10">
+  <h1>Recent Posts:</h1>
+  <% if @post && @post.count > 0 %>
+    <% @post.last(10).reverse.each do |post| %>
+    <div id="individual_post">
+      <%= post.body %>  
+    </div>
+    <% end %>
+
+  <% end %>
+
+</div>
 
 
 </body>

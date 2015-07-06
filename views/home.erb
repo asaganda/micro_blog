@@ -8,5 +8,18 @@
 
   <input type="submit">
 </form>
+</div>
+
+<div id="past_10">
+  <h1>Recent Posts:</h1>
+  <% if @post && @post.count > 0 %>
+    <% @post.last(10).reverse.each do |post| %>
+    <div id="individual_post">
+      <%= post.body %>  
+    </div>
+    <% end %>
+
+  <% end %>
+
 
 </div>

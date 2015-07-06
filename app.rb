@@ -53,7 +53,11 @@ post '/sign_in' do
 end
 
 get '/home' do
+  if current_user
+    user_id = current_user
+    @post = User.find(user_id).posts
     erb :home
+  end
 end
 
 post '/post' do
@@ -63,6 +67,10 @@ end
 
 get '/profile' do
     @user = User.find session[:user_id]
+    if current_user
+      user_id = current_user
+      @post = User.find(user_id).posts
+    end
     erb :profile
 end
 
