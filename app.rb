@@ -87,5 +87,10 @@ get '/delete' do
   erb :delete
 end
 
+# get '/profile/edit' do
+#   @user = User.find(session[:user_id]).update_attributes(:username)
+# end
+
+
 
 
